@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+
+</head>
+<body>
+<select data-name="line" name="select line of end station">
+  <option value="red">Red Line</option>
+  <option value="orange">Orange Line</option>
+  <option value="green">Green Line</option>
+  <option value="blue">Blue Line</option>
+</select>
+
+<h1></h1>
+
+<select data-name="orangeLineStations" name="orange line stations" disabled="true">
+
+</select>
+
+<script src="jquery.js"></script>
+<script>
+
+$(document).on('ready', function(undefined) {
+  $body = $('body');
+  $lineSelector = $('select[data-name=line]');
+
+  OrangeLine = [
+  'Oak Grove',
+  'Malden Center',
+  'Welington',
+  'Assembly',
+  'Sullivan Square',
+  'Community College',
+  'North station',
+  'Haymarket',
+  'State',
+  'Downtown Crossing',
+  'Chinatown',
+  'Tufts Medical Center',
+  'Back Bay',
+  'Massachusetts Avenue',
+  'Ruggles',
+  'Roxbury Crossing',
+  'Jackson Square',
+  'Stony Brook',
+  'Green Street',
+  'Forest HIlls'
+  ]
+
+  $('h1').text($lineSelector.val() + " stations")
+
+  $lineSelector.on('change', function(e) {
+    if ($lineSelector.val() === "orange") {
+      $('select[data-name="orangeLineStations"]').attr("disabled", false)
+      for (station in OrangeLine){
+        $('select[data-name="orangeLineStations"]').append(
+          '<option value="' + OrangeLine[station] + '">' + OrangeLine[station] + '</option>')
+      }
+    }
+
+
+    $('h1').text($lineSelector.val() + " stations")
+  });
+
+
+});
+
+</script>
+</body>
+</html>
