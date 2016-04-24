@@ -1,17 +1,7 @@
-var Train = function() {
-  this.doors = {
-    front: {
-      left: ['elevator', 'escalator', 'stairs'],
-      right: '',
-    },
-    middle: {
-      left: '',
-      right: '',
-    },
-    back: {
-      left: '',
-      right: ''
-    }
+var Car = function(carNumber, side, arrayOfDoors) {
+  this.carNumber = carNumber;
+  this.side = 'left' || 'right';
+  this.doors = 'front' || 'middle' || 'back'
   }
 }
 

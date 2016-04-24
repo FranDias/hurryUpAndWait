@@ -6,12 +6,37 @@ var Station = function (name, line, direction, trainExits) {
   // from a user perspective
   // but I think I need it.
   this.direction = 'aleweife';
-  // connection?
+
+  if (direction === 'northbound') {
+    this.exits = [
+      {
+        doorService: [new Car(0,"left", "back"), new Car(1, "left", "front")],
+        exitName: "chaucy",
+        access: ['stairs', 'escalator', 'elevator', 'ramp', 'flat'],
+      },
+      {
+        doorService: [new Car(0,"left", "back"), new Car(1, "left", "front")],
+        exitName: "chaucy",
+        access: ['stairs', 'escalator', 'elevator', 'ramp', 'flat'],
+      }
+    ]
+  } else {
+    this.exits = [
+      {
+        doorService: [new Car(0,"left", "back"), new Car(1, "left", "front")],
+        exitName: "chaucy",
+        access: ['stairs', 'escalator', 'elevator', 'ramp', 'flat'],
+      }
+    ]
+  }
 
   // function that says which
 }
 
 /*
+
+  Station has a train which tells which exits are closest by door.
+
 
   Think of a station in terms of a train.
 
