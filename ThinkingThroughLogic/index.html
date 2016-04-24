@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
 <head>
-
 </head>
 <body>
 <select data-name="line" name="select line of end station">
@@ -11,18 +10,21 @@
   <option value="blue">Blue Line</option>
 </select>
 
-<h1></h1>
+<select data-name="lineStations"></select>
 
-<select data-name="orangeLineStations" name="orange line stations" disabled="true">
 
-</select>
+<p>
+  Obviously the data type will be a little bit more complicated but here's where the diagrams go:
+</p>
+
+
+
 
 <script src="jquery.js"></script>
-<script>
 
+<script>
 $(document).on('ready', function(undefined) {
   $body = $('body');
-  $lineSelector = $('select[data-name=line]');
 
   OrangeLine = [
   'Oak Grove',
@@ -45,24 +47,160 @@ $(document).on('ready', function(undefined) {
   'Stony Brook',
   'Green Street',
   'Forest HIlls'
+];
+
+  RedLine = [
+    'Alewife',
+    'Davis',
+    'Porter',
+    'Harvard',
+    'Central',
+    'Kendall',
+    'Charles/MGH',
+    'Park Street',
+    'Downtown Crossing',
+    'South',
+    'Broadway',
+    'Andrew',
+    'JFK/UMass',
+    'North Quincy',
+    'Wollaston',
+    'Quincy Center',
+    'Quincy Adams',
+    'Braintree',
+    'Savin Hill',
+    'Fields Corner',
+    'Shawmut',
+    'Ashmont',
+    'Cedar Grove',
+    'Butler',
+    'Milton',
+    'Central Avenue',
+    'Valley Road',
+    'Capen Street',
+    'Mattapan'
+  ];
+
+  BlueLine = [
+    "Wonderland",
+    "Revere Beach",
+    "Beachmont",
+    "Suffolk Downs",
+    "Orient Heights",
+    "Wood Island",
+    "Airport",
+    "Maverick",
+    "Aquarium",
+    "State",
+    "Government Center",
+    "Bowdoin"
   ]
 
-  $('h1').text($lineSelector.val() + " stations")
+  GreenLine = [
+    "Lechemere",
+    "Science Park",
+    "North",
+    "Haymarket",
+    "Government Center",
+    "Park Street",
+    "Boylston",
+    "Arlington",
+    "Copley",
+    "Hynes Convention Center",
+    "Kenmore",
+    "Prudential",
+    "Symphony",
+    "Northeastern University",
+    "Museum of Fine Arts",
+    "Longwood Medical Area",
+    "Brigham Circle",
+    "Fenwood Road",
+    "Mission Park",
+    "Riverway",
+    "Back of the Hill",
+    "Heath Street",
+    "St. Marry's Street",
+    "Haws Street",
+    "Kent Street",
+    "St. Paul Street",
+    "Coolidge Corner",
+    "Summit Avenue",
+    "Brandon Hall",
+    "Fairbanks",
+    "Washington Square",
+    "Tappan Street",
+    "Dean Road",
+    "Englewood Avenue",
+    "Cleaveland Circle",
+    "Blandfod Street",
+    "Boston University",
+    "Boston University East",
+    "Boston University Central",
+    "Boston University West",
+    "St. Paul St.",
+    "Pleasant Street",
+    "Babcock Street",
+    "Packards Corner",
+    "Harvard Avenue",
+    "Griggs Street/Long Avenue",
+    "Allston Street",
+    "Warren Street",
+    "Washington Street",
+    "Sutherland Road",
+    "Chiswick Road",
+    "Chestnut Hill Avenue",
+    "South Street",
+    "Boston College station",
+    "Fenway",
+    "Longwood",
+    "Brookline Village",
+    "Brookline Hills",
+    "Beaconsfield",
+    "Reservior",
+    "Chestnut Hill",
+    "Newton Centre",
+    "Newton Highlands",
+    "Eliot",
+    "Waban",
+    "Woodland",
+    "Riverside"
+  ]
 
-  $lineSelector.on('change', function(e) {
+  $lineSelector = $('select[data-name="line"]');
+  var checkStations = function() {
+    $('select[data-name="lineStations"]').html('');
+
     if ($lineSelector.val() === "orange") {
-      $('select[data-name="orangeLineStations"]').attr("disabled", false)
       for (station in OrangeLine){
-        $('select[data-name="orangeLineStations"]').append(
+        $('select[data-name="lineStations"]').append(
           '<option value="' + OrangeLine[station] + '">' + OrangeLine[station] + '</option>')
       }
     }
+    if ($lineSelector.val() === "red") {
+      for (station in RedLine){
+        $('select[data-name="lineStations"]').append(
+          '<option value="' + RedLine[station] + '">' + RedLine[station] + '</option>')
+      }
+    }
+    if ($lineSelector.val() === "blue") {
+      for (station in BlueLine){
+        $('select[data-name="lineStations"]').append(
+          '<option value="' + BlueLine[station] + '">' + BlueLine[station] + '</option>')
+      }
+    }
+    if ($lineSelector.val() === "green") {
+      for (station in GreenLine){
+        $('select[data-name="lineStations"]').append(
+          '<option value="' + GreenLine[station] + '">' + GreenLine[station] + '</option>')
+      }
+    }
+  }
 
+  checkStations();
 
-    $('h1').text($lineSelector.val() + " stations")
+  $lineSelector.on('change', function(e) {
+    checkStations();
   });
-
-
 });
 
 </script>
