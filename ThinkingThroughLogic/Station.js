@@ -6,7 +6,6 @@ var Station = function (name, line, direction, trainExits) {
   // from a user perspective
   // but I think I need it.
   this.direction = 'aleweife';
-
   if (direction === 'northbound') {
     this.exits = [
       {
@@ -17,20 +16,19 @@ var Station = function (name, line, direction, trainExits) {
       {
         doorService: [new Car(0,"left", "back"), new Car(1, "left", "front")],
         exitName: "chaucy",
-        access: ['stairs', 'escalator', 'elevator', 'ramp', 'flat'],
+        access: ['stairs', 'escalator', 'elevator', 'ramp', 'flat']
       }
     ]
-  } else {
+  } else if (direction === 'southbound'){
     this.exits = [
       {
         doorService: [new Car(0,"left", "back"), new Car(1, "left", "front")],
         exitName: "chaucy",
-        access: ['stairs', 'escalator', 'elevator', 'ramp', 'flat'],
+        access: ['stairs', 'escalator', 'elevator', 'ramp', 'flat']
       }
     ]
   }
 
-  // function that says which
 }
 
 /*
