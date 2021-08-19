@@ -8,5 +8,5 @@ var Exit = function() {
 
 // An exit is in a train car position?
 var TrainCar = function() {
-  this.carNumber = [0...5]
+  this.carNumber = [] // 0 - 5
 }
