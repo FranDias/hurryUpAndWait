@@ -1,11 +1,3 @@
-var Car = function(carNumber, side, arrayOfDoors) {
-  this.carNumber = carNumber;
-  this.side = 'left' || 'right';
-  this.doors = 'front' || 'middle' || 'back'
-  }
-}
-
-
 /*
 
   Red, Orange, Blue
@@ -13,4 +5,11 @@ var Car = function(carNumber, side, arrayOfDoors) {
   6 doors, 2 sets of 3.
   Train Position.
 
+/*
+
+  Green
+
+  2 cars
+  2 doors per side, 4 total
+  but several different types
 */
